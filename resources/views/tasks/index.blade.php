@@ -12,11 +12,19 @@
 <body>
     <ul>
         <?php foreach ($tasks as $task) : ?>
-            <li><?= $task; ?></li>
+            <li>
+              <?php 
+                echo json_decode(json_encode($task),true)['body']; // converts the collection to an array for no reason
+              ?>
+            </li>
         <?php endforeach; ?>
     <!-- vs blade -->
         @foreach ($tasks as $task)      
-            <p>{{ $task }}</p>
+          <li>
+            <a href= "/tasks/{{ $task->id }}">
+              {{ $task->body }}
+            </a>
+        </li>
         @endforeach
     </ul>
 </body>
