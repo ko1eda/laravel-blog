@@ -18,28 +18,28 @@
 @section ('content')
   <div class="columns is-multiline">
     @foreach ($posts as $post)
-      <a href= <?= "/posts/{$post->id}"?>>
-        <div class="column is-6">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title is-centered ">
-                {{$post->title}}
-              </p>
-            </header>
-            <div class="card-content">
-              <div class="content is-centered">
-                  {{$post->body}}
-                <br>
-              <time datetime="2016-1-1">{{ $post->created_at }}</time>
-              </div>
+      <div class="column is-6">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title is-centered ">
+              {{$post->title}}
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content is-centered">
+                {{$post->body}}
+              <br>
+            <time datetime="2016-1-1">
+              {{ $post->created_at->toFormattedDateString() }}
+            </time>
             </div>
-            <footer class="card-footer">
-              <a href="#" class="card-footer-item">View</a>
-              <a href="#" class="card-footer-item">Share</a>
-            </footer>
           </div>
+          <footer class="card-footer">
+            <a href="{{"/posts/$post->id"}}" class="card-footer-item">View</a>
+            <a href="" class="card-footer-item">Share</a>
+          </footer>
         </div>
-      </a>
+      </div>
     @endforeach
   </div>
 @endsection

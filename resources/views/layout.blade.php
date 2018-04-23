@@ -20,6 +20,7 @@
           <div class="columns">
             <div class='column'>
               @yield('content')
+              @include('partials.errors')
             </div>
             @include('partials.sidebar')
           </div>
