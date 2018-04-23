@@ -23,17 +23,9 @@
 | it will match anything that comes after /tasks/ to this view
 |
 */
-
-Route::get('/', function () {
-    // $tasks = DB::table('tasks')->latest()->get(); // no eloquent way
-    $tasks = App\Task::all(); // eloquent modal of Task
-    return view('tasks/index', compact('tasks'));
-});
-
-Route::get('/tasks/{task}', function ($id) {
-    $task = App\Task::find($id);
-    // tasks.show is the same as tasks/show
-    // it directs laravel to look in the tasks
-    // directory
-    return view('tasks.show', compact('task'));
-});
+// call the index method on the tasks controller
+// index is the conventional method for fetching all data
+// controllers are responsible for calling methods on the model
+// and updating the appropriate view
+Route::get('/', 'TasksController@index');
+Route::get('/tasks/{task}', "TasksController@show");
