@@ -13,11 +13,11 @@
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item is-active" href="/">
                 Home
               </a>
-              <a class="navbar-item">
-                New Features
+              <a class="navbar-item" href="/posts/create">
+                New Post
               </a>
               <a class="navbar-item">
                 About

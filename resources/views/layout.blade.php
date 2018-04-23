@@ -17,7 +17,12 @@
     @yield('hero')
     <section class="section">
         <div class="container">
-            @yield('content')
+          <div class="columns">
+            <div class='column'>
+              @yield('content')
+            </div>
+            @include('partials.sidebar')
+          </div>
         </div>
     </section>
   </main>
