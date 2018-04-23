@@ -1,5 +1,5 @@
-
-    <header class="navbar">
+<header>
+    <header class="navbar is-primary">
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
@@ -17,12 +17,13 @@
                 Home
               </a>
               <a class="navbar-item">
-                Examples
+                New Features
               </a>
               <a class="navbar-item">
-                Documentation
+                About
               </a>
             </div>
           </div>
         </div>
     </header>
+</header>

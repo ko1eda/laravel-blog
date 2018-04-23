@@ -13,10 +13,13 @@
     @include('partials.nav')
   @show
   
-  <main class="section is-large">
-      <div class="container">
-          @yield('content')
-      </div>
+  <main>
+    @yield('hero')
+    <section class="section">
+        <div class="container">
+            @yield('content')
+        </div>
+    </section>
   </main>
   
   @include('partials.footer')
