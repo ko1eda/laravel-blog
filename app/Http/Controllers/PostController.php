@@ -32,7 +32,8 @@ class PostController extends Controller
     {
         // this automatically creates
         // a post object populated with Post::find(id)
-        return view('posts.show', compact('post'));
+        $comments = $post->comments;
+        return view('posts.show', compact('post', 'comments'));
     }
 
     public function create()

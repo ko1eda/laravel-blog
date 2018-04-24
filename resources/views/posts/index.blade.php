@@ -29,7 +29,7 @@
             <div class="content is-centered">
                 {{$post->body}}
               <br>
-            <time datetime="2016-1-1">
+            <time datetime={{ $post->created_at->toFormattedDateString() }}>
               {{ $post->created_at->toFormattedDateString() }}
             </time>
             </div>
