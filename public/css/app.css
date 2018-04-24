@@ -11828,23 +11828,23 @@ label.panel-block:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   background: whitesmoke;
+  padding: 30px;
 }
 
-.post-detail.title {
+.post-detail__title {
   color: black;
-  padding: 30px;
-  margin: 0;
 }
 
-.post-detail.body {
-  padding: 10px 30px;
+.post-detail__body {
+  padding: 40px 0;
 }
 
-.post-detail.author {
-  padding: 30px;
+.post-detail__author {
+  padding: 0 0 20px 0;
 }
 
-.post-detail.comments {
+.comments {
+  background: whitesmoke;
   border-top: 5px solid white;
   border-bottom: 5px solid white;
   padding: 20px 30px;
