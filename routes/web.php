@@ -43,6 +43,8 @@ Route::post('/posts', 'PostController@store');
 // from the table.
 Route::get('/posts/{post}', 'PostController@show');
 
+Route::post('/posts/{post}/comments', 'CommentController@store');
+
 // to edit a post we would use to display the edit form for the post
 // Route::get('/<table_name>/{id}/edit', 'PostController@edi\t')
 

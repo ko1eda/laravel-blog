@@ -17,10 +17,10 @@
     @yield('hero')
     <section class="section">
         <div class="container">
+            @include('partials.errors')
           <div class="columns">
             <div class='column'>
               @yield('content')
-              @include('partials.errors')
             </div>
             @include('partials.sidebar')
           </div>

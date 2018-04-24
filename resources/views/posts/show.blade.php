@@ -12,13 +12,21 @@
       <p class='post-detail__author is-size-5'>
         -{{$post->author}}
       </p>
-      <form class="post-detail__form">
+
+      <form 
+        class="post-detail__form"
+        method="POST"
+        action="/posts/{{$post->id}}/comments"
+        >
           {{ csrf_field() }}
         <div class="field">
           <div class="control">
-            <textarea class="textarea" 
-            placeholder="Post a comment" 
-            rows="5"></textarea>
+            <textarea 
+              class="textarea" 
+              placeholder="Post a comment" 
+              name="body"
+              required
+              rows="5"></textarea>
           </div>
         </div>
         <div class="field">
@@ -27,6 +35,7 @@
           </div>
         </div>
       </form>
+      
     </div>
   </div>
   @foreach ($comments as $comment)

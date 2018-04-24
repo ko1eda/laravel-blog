@@ -31,8 +31,15 @@ class PostController extends Controller
     public function show(Post $post)
     {
         // this automatically creates
-        // a post object populated with Post::find(id)
-        $comments = $post->comments;
+        // a post object populated with Post::find(id) automatically creates
+        // a property for any comments whose post_id  foreign key corresponds to its id.
+        // if we access $post->comments it will return a collection of all matching posts.
+        // However we can then chain queries by calling the $post instances comments() method
+        // whic will returned a new instance of the query builder representing their relationship.
+        //  "Of course, since all relationships also serve as query builders,
+        //    you can add further constraints to which comments are retrieved
+        //    by calling the comments method and continuing to chain conditions onto the query:"
+        $comments = $post->comments()->latest()->get();
         return view('posts.show', compact('post', 'comments'));
     }
 
