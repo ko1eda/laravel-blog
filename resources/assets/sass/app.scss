@@ -2,13 +2,12 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
-@import "variables";
+// Vendor
+@import 'vendor/bulma-theme';
+@import '~bulma/bulma.sass';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+//variables
+@import "base/variables";
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
+// Components
+@import 'components/nav';

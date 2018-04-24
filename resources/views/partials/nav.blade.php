@@ -1,5 +1,5 @@
 <header>
-    <header class="navbar is-primary">
+    <header class="navbar nav is-extended is-primary">
         <div class="container">
           <div class="navbar-brand">
             <a class="navbar-item">
