@@ -22,7 +22,7 @@
             <div class='column'>
               @yield('content')
             </div>
-            @include('partials.sidebar')
+            {{-- @include('partials.sidebar') --}}
           </div>
         </div>
     </section>
