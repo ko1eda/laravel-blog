@@ -16,15 +16,17 @@
   <main>
     @yield('hero')
     <section class="section">
-        <div class="container">
-            @include('partials.errors')
-          <div class="columns">
-            <div class='column'>
-              @yield('content')
-            </div>
-            {{-- @include('partials.sidebar') --}}
+      <div class="container">
+          @include('partials.errors')
+        <div class="columns">
+          <div class='column'>
+            @yield('content')
           </div>
+          @auth
+            @include('partials.sidebar')
+          @endauth
         </div>
+      </div>
     </section>
   </main>
   

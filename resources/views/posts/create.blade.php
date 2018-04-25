@@ -9,7 +9,7 @@
           <input 
             class="input" 
             type="text" 
-            placeholder="Text input"
+            placeholder="A title"
             name="title"
             required
           >
@@ -22,7 +22,7 @@
             <input 
             class="input" 
             type="text" 
-            placeholder="e.g Alex Smith"
+            placeholder="{{Auth::user()->name}}"
             name="author"
             required
             >
@@ -34,7 +34,7 @@
         <div class="control">
           <textarea 
           class="textarea" 
-          placeholder="Textarea"
+          placeholder="Whats on your mind {{Auth::user()->name}} ?"
           name= "body"
           required
           ></textarea>

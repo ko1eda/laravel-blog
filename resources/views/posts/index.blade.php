@@ -29,8 +29,8 @@
             <div class="content is-centered">
                 {{$post->body}}
               <br>
-            <time datetime={{ $post->created_at->toFormattedDateString() }}>
-              {{ $post->created_at->toFormattedDateString() }}
+            <time>
+              {{ $post->user->name }} - {{ $post->created_at->toFormattedDateString() }}
             </time>
             </div>
           </div>
