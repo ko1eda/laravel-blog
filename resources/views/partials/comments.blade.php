@@ -9,7 +9,7 @@
     <div class="media-content">
       <div class="content">
         <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> 
+        <strong>{{ $comment->user->name }}</strong> <small>@<span>{{str_replace(' ', '', $comment->user->name) }}</small> 
         <small>{{ $comment->created_at->diffForHumans() }}</small>
           <br>
             {{ $comment->body }}

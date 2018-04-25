@@ -18,7 +18,10 @@ class CommentController extends Controller
         // method which returns an instance of the query builder class
         // whic has link preconstructed between the posts instances id
         // and a comments post_id number when we create a new comment here
-        $post->comments()->create(request(['body']));
+        $post->comments()->create([
+            'body' => request('body'),
+            'user_id' => \Auth::user()->id
+        ]);
 
         return back();
     }

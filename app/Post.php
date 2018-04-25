@@ -22,29 +22,17 @@ class Post extends Model
     protected $fillable = [
         'title',
         'body',
-        'author'
+        'author',
+        'user_id'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-     /*
-    | This creates a one to many relationship between
-    | posts and comments eloquent does this automatically
-    | by assuming that the primary key on posts links
-    | to a foreign key posts_id on comments this can be changed however.
-    | also Comment::class is just a method for retrieving the full class path
-    | so eloquent knows where to look
-    | https://laravel.com/docs/5.6/eloquent-relationships
-    |
-    | comments is now a dynamic property:
-    |   Dynamic properties allow you to access relationship methods
-    |   as if they were properties defined on the model
-    */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
+
 }
