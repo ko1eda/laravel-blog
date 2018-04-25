@@ -1,3 +1,10 @@
-@import "~bulma/sass/utilities/_all";
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
 
 // Custom themes here
+
+// $primary: #94A89A;
+
+@import "~bulma/sass/utilities/derived-variables";
+
+@import "~bulma/bulma.sass";
