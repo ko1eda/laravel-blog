@@ -14,7 +14,7 @@
             <input 
             class="input" 
             type="text" 
-            placeholder="John Smith" 
+            placeholder="Ron Swanson" 
             required
             name="name"
           >
@@ -48,6 +48,23 @@
               placeholder="Password" 
               required
               name="password"
+            >
+              <span class="icon is-small is-left">
+                <i class="fas fa-key"></i>
+              </span>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Confirm Password</label>
+            <div class="control has-icons-left">
+              <input 
+              class="input" 
+              type="password" 
+              placeholder="Password" 
+              required
+              name="password_confirmation"
+              id="password_confirmation"
             >
               <span class="icon is-small is-left">
                 <i class="fas fa-key"></i>
