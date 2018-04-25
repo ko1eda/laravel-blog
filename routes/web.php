@@ -28,8 +28,8 @@
 */
 
 // when fetching all records in a table we use index
-// posts routes
-Route::get('/', 'PostController@index');
+// posts routes (index renamed as home)
+Route::get('/', ['as' => 'home', 'uses'=>'PostController@index']);
 
 Route::get('/posts/create', 'PostController@create');
 
@@ -41,9 +41,9 @@ Route::post('/posts/{post}/comments', 'CommentController@store'); // stores a co
 
 //authentication routes -- you could also use one AuthController responsible for both tasks
 Route::get('/register', 'RegistrationController@create');
-Route::get('/post', 'RegistrationController@store');
+Route::post('/register', 'RegistrationController@store');
 
-Route::get('/login', 'SessionCointroller@create');
+Route::get('/login', 'SessionController@create');
 
 
 // to edit a post we would use to display the edit form for the post

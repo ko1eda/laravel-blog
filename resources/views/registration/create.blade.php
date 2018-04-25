@@ -6,12 +6,18 @@
       <h1 class="registration__header title is-1">
         Sign Up!
       </h1>
-      <form class="registration__form "action="/register" method="POST">
+      <form class="registration__form" action="/register" method="POST">
         {{ csrf_field() }}
         <div class="field">
           <label class="label">Name</label>
           <div class="control has-icons-left">
-            <input class="input" type="text" placeholder="John Smith" required>
+            <input 
+            class="input" 
+            type="text" 
+            placeholder="John Smith" 
+            required
+            name="name"
+          >
             <span class="icon is-small is-left">
                 <i class="fas fa-user"></i>
             </span>
@@ -21,7 +27,12 @@
         <div class="field">
           <label class="label">Email</label>
           <div class="control has-icons-left">
-            <input class="input" type="email" placeholder="Email" required>
+            <input 
+            class="input" 
+            type="email" placeholder="Email" 
+            required
+            name="email"
+          >
             <span class="icon is-small is-left">
               <i class="fas fa-envelope"></i>
             </span>
@@ -31,7 +42,13 @@
         <div class="field">
             <label class="label">Password</label>
             <div class="control has-icons-left">
-              <input class="input" type="password" placeholder="password" required>
+              <input 
+              class="input" 
+              type="password" 
+              placeholder="Password" 
+              required
+              name="password"
+            >
               <span class="icon is-small is-left">
                 <i class="fas fa-key"></i>
               </span>
