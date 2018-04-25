@@ -11,4 +11,11 @@ class SessionController extends Controller
         //some functionality
         return view('session.create');
     }
+
+    public function destroy()
+    {
+        \Auth::logout();
+
+        return redirect()->home();
+    }
 }

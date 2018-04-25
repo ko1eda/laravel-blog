@@ -45,6 +45,8 @@ Route::post('/register', 'RegistrationController@store');
 
 Route::get('/login', 'SessionController@create');
 
+Route::get('/logout', 'SessionController@destroy'); // removing somethis is conventionally named destroy
+
 
 // to edit a post we would use to display the edit form for the post
 // Route::get('/<table_name>/{id}/edit', 'PostController@edi\t')
