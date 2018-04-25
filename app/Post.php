@@ -24,6 +24,12 @@ class Post extends Model
         'body',
         'author'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
      /*
     | This creates a one to many relationship between
     | posts and comments eloquent does this automatically
