@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 /*
 | the fillable property ensures that the only
 | forms that can update this table from a request
@@ -35,4 +35,16 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function scopeFilter($query, array $params)
+    {
+        extract($params);
+
+        if (isset($month)) {
+            $query->whereMonth('created_at', Carbon::parse($month)->month);
+        }
+        if (isset($year)) {
+            $query->whereYear('created_at', $year);
+        }
+        return $query;
+    }
 }
