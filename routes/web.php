@@ -43,14 +43,7 @@ Route::post('/posts/{post}/comments', 'CommentController@store'); // stores a co
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
 
-Route::get('/login', 'SessionController@create');
+Route::get('/login', 'SessionController@create')->name('login'); // this must be named for auth middleware to recognize it
+Route::post('/login', 'SessionController@store');
 
 Route::get('/logout', 'SessionController@destroy'); // removing somethis is conventionally named destroy
-
-
-// to edit a post we would use to display the edit form for the post
-// Route::get('/<table_name>/{id}/edit', 'PostController@edi\t')
-
-// the we would use to actually make the edit request
-// Route::patch('/<table_name>/{id}')
-// delete works the same as patch
