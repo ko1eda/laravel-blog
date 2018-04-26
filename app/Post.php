@@ -35,7 +35,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public static function getArchive() :array
+    public static function fetchArchives() :array
     {
         return static::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
             ->groupBy('month', 'year')
