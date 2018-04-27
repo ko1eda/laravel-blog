@@ -9,9 +9,13 @@ use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
+    public function __construct()
+    {
+        return $this->middleware('guest');
+    }
+
     public function create()
     {
-        //some functionality
         return view('registration.create');
     }
 
