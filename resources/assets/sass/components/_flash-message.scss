@@ -1,0 +1,10 @@
+.is-positioned {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  z-index: 20;
+}
+
+.is-sized {
+  max-width: 400px;
+}

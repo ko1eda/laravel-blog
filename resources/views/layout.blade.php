@@ -16,6 +16,7 @@
   <main>
     @yield('hero')
     <section class="section">
+        @include('partials.flash-message')
       <div class="container">
           @include('partials.errors')
         <div class="columns">

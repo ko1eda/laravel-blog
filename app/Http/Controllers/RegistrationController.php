@@ -19,7 +19,7 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
 
-    public function store(RegistrationRequest $request)
+    public function store(RegistrationRequest $req)
     {
         // RegistrationRequest Form Request class
         // validates the input before it reaches
@@ -28,13 +28,16 @@ class RegistrationController extends Controller
         // this method is called, if not
         // user is returned to prev page and error logged
         $user = User::create([
-            'name' => request('name'),
-            'email' => request('email'),
-            'password' => \Hash::make(request('password'))
+            'name' => $req->get('name'),
+            'email' => $req->get('email'),
+            'password' => \Hash::make($req->get('password'))
         ]);
+        
+        $req->session()
+            ->flash('message', 'Thanks for signing up ' .$user->name);
 
         \Auth::login($user); // authorize user credentials
-
+        
         \Mail::to($user)->send(new Welcome($user)); //send welcome email to new user
 
         return redirect()->home(); //because we aliased the index route

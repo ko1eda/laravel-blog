@@ -18,15 +18,19 @@ class SessionController extends Controller
         return view('session.create');
     }
 
-    public function store()
+    public function store(Request $req)
     {
         // get login info, check to see if it matches database
-        // if so redirect to the intended page you were trying to access
+        // if so redirect to the intended page with welcome message
         // else return to previous page and display and error
-        $credentials = request(['email', 'password']);
+        $credentials = $req->only(['email','password']);
         
         if (\Auth::attempt($credentials)) {
             // Authentication passed...
+            // session is presistant data between http request
+            $req->session()
+                ->flash('message', 'Welcome back ' .\Auth::user()->name);
+
             return redirect()->intended('/');
         }
         return back()->withErrors([

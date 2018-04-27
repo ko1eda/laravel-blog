@@ -23,14 +23,17 @@ class PostController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $req)
     {
+        // retrieve any flash message stored from
+        // the login ir registration session
+        $message = $req->session()->get('message');
+
         $posts = Post::latest()
-            ->filter(request(['month', 'year']))
+            ->filter($req->only(['month', 'year']))
             ->get();
 
-
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'message'));
     }
 
     public function show(Post $post)
