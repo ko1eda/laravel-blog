@@ -1,9 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Welcome</title>
-</head>
-<body>
-  <h1> Welcome to The Blog {{ $user->name }} </h1>
-</body>
-</html>
+@component('mail::message')
+# Introduction
+
+Hello, **{{ $user->name }}**
+
+Thank you for signing up !
+
+@component('mail::panel')
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+@endcomponent
+
+@component('mail::button', ['url' => 'www.mycoolblog.test'])
+  Check it out
+@endcomponent
+
+Cheers,<br>
+{{ config('app.name') }}
+@endcomponent
