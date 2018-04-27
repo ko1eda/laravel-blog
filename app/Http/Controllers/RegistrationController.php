@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Mail\Welcome;
+use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -14,22 +15,14 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
 
-    public function store()
+    public function store(RegistrationRequest $request)
     {
-        // password  |confirmed will double check that
-        // the password entered matches with the
-        // re-entered password from the input which
-        // must specifically be labeled as id & name = password__confirmation
-        // in the html
-        // you can do this with any field you just have to add the
-        // id & name to be the name of the field
-        // for example name = email_confirmation in the html
-        $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed'
-        ]);
-
+        // RegistrationRequest Form Request class
+        // validates the input before it reaches
+        // the controller
+        // If the input is valid
+        // this method is called, if not
+        // user is returned to prev page and error logged
         $user = User::create([
             'name' => request('name'),
             'email' => request('email'),
@@ -38,7 +31,7 @@ class RegistrationController extends Controller
 
         \Auth::login($user); // authorize user credentials
 
-        \Mail::to($user)->send(new Welcome($user));
+        \Mail::to($user)->send(new Welcome($user)); //send welcome email to new user
 
         return redirect()->home(); //because we aliased the index route
     }
