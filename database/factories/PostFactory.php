@@ -11,12 +11,11 @@ use Faker\Generator as Faker;
 
 
 $factory->define(App\Post::class, function (Faker $faker) {
+    $user = factory(App\User::class)->create();
     return [
         'title' => $faker->sentence,
         'body' => implode($faker->paragraphs(3)),
-        'author' => $faker->firstName,
-        'user_id' => function () {
-            return factory(App\User::class)->create()->id;
-        }
+        'author' => $user->name,
+        'user_id' => $user->id
     ];
 });
