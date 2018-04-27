@@ -30,14 +30,29 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
 
+    public function tags()
+    {
+        // many to many relationship with tags
+        // with timestamp automatically maintains the timestamp
+        // on the pivot table between tags and posts
+        // meaning we could theoritcally search all posts for a given tag
+        // by order of newest posts with tag (x)
+        return $this->belongsToMany(Tag::class)->withTimeStamps();
+    }
+
     public static function fetchArchives() :array
     {
-        return static::selectRaw('year(created_at) as year, monthname(created_at) as month, count(*) as published')
+        return static::selectRaw(
+            'year(created_at) as year, 
+            monthname(created_at) as month, 
+            count(*) as published'
+        )
             ->groupBy('month', 'year')
             ->orderBy('created_at', 'desc')
             ->get()
@@ -56,5 +71,4 @@ class Post extends Model
         }
         return $query;
     }
-
 }
