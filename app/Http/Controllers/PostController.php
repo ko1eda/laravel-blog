@@ -29,7 +29,7 @@ class PostController extends Controller
         // the login ir registration session
         $message = $req->session()->get('message');
 
-        $posts = Post::latest()
+        $posts = Post::with('tags')->latest()
             ->filter($req->only(['month', 'year']))
             ->get();
 

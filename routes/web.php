@@ -31,6 +31,8 @@
 // posts routes (index renamed as home)
 Route::get('/', ['as' => 'home', 'uses'=>'PostController@index']);
 
+Route::get('/posts/tags/{tag}', 'TagController@index'); // loads all posts for a given tag
+
 Route::get('/posts/create', 'PostController@create');
 
 Route::get('/posts/{post}', 'PostController@show'); // has to be the last get route or it will block the others

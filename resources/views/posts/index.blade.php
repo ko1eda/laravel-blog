@@ -33,6 +33,11 @@
               {{ $post->user->name }} - {{ $post->created_at->toFormattedDateString() }}
             </time>
             </div>
+            <div class="tags">
+              @foreach($post->tags as $tag)
+                <span class="tag is-dark">{{ $tag->name }}</span>
+              @endforeach
+            </div>
           </div>
           <footer class="card-footer">
             <a href="{{"/posts/$post->id"}}" class="card-footer-item">View</a>

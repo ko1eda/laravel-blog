@@ -13,6 +13,12 @@
         -{{$post->author}}
       </p>
 
+      <div class="tags">
+        @foreach($post->tags as $tag)
+          <span class="tag is-dark">{{ $tag->name }}</span>
+        @endforeach
+      </div>
+      
       <form 
         class="post-detail__form"
         method="POST"
